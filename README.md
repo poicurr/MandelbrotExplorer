@@ -1,4 +1,4 @@
-# MandelbrotExploler
+# MandelbrotExplorer
 
 # usage
  - press Up key to increase max iteration
