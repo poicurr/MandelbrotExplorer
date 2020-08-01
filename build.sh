@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ROOT_DIR=$(cd $(dirname $0)../; pwd)
+ROOT_DIR=$(cd $(dirname $0); pwd)
 TEST_DIR=${ROOT_DIR}/test
 BUILD_DIR=${ROOT_DIR}/build
 

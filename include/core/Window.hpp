@@ -68,7 +68,7 @@ class Window {
         if (event.type == SDL_QUIT) {
           quitting = true;
         }
-        if (event.key.keysym.sym == SDLK_ESCAPE) {
+        if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE) {
           quitting = true;
         }
       }
