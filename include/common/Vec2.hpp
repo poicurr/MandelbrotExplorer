@@ -1,17 +1,8 @@
 #pragma once
 
 #include <cmath>
-#include <concepts>
 
 template <typename T>
-concept Number = requires(T a, T b) {
-  a + b;
-  a - b;
-  a* b;
-  a / b;
-};
-
-template <Number T>
 struct Vec2 {
   using type = T;
   T x, y;
@@ -25,8 +16,12 @@ struct Vec2 {
     return *this;
   }
 
-  Vec2 operator-(const Vec2<T>& other) const { return {x - other.x, y - other.y}; }
-  Vec2 operator+(const Vec2<T>& other) const { return {x + other.x, y + other.y}; }
+  Vec2 operator-(const Vec2<T>& other) const {
+    return {x - other.x, y - other.y};
+  }
+  Vec2 operator+(const Vec2<T>& other) const {
+    return {x + other.x, y + other.y};
+  }
   Vec2 operator-(int n) const { return {x - n, y - n}; }
   Vec2 operator+(int n) const { return {x + n, y + n}; }
 
