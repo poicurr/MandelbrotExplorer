@@ -1,7 +1,7 @@
 #pragma once
 
+#include <array>
 #include <complex>
-#include <iostream>
 
 #include "../common/Vec2.hpp"
 #include "../common/thread.hpp"
@@ -99,8 +99,10 @@ struct Mandelbrot : Component {
     };
 
     int w = W / 8;
+    std::array<std::future<void>, 8> futures;
     for (int i = 0; i < 8; ++i) {
-      renderRegion(w * i, w * i + w);
+      futures[i] = pool.enqueue(renderRegion, w * i, w * i + w);
     }
+    for (int i = 0; i < 8; ++i) futures[i].get();
   }
 };
